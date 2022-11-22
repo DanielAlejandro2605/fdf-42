@@ -1,6 +1,6 @@
 NAME					=	fdf
 CC						=	cc
-FLAGS					=	-Wall -Wextra -Werror -g
+FLAGS					=	-Wall -Wextra -Werror
 RM						=	rm -f
 
 # DIRECTORIES
@@ -16,9 +16,8 @@ _FDF_FILES				=	main.c read.c map.c env.c hooks.c exit.c \
 							image.c isometric.c line.c project_utils.c
 FDF_SRC_DIR				=	./sources/
 FDF_SRCS				=	$(addprefix $(FDF_SRC_DIR), $(_FDF_FILES))
-# FDF_OBJS				=	$(FDF_SRCS:.c=.o)
 
-_UTILS_FT				=	ft_bzero.c ft_calloc.c ft_strchr.c ft_abs.c ft_strjoin_secure.c \
+_UTILS_FT				=	ft_bzero.c ft_calloc.c ft_isnegative.c ft_strchr.c ft_abs.c ft_strjoin_secure.c \
 							ft_strlen_int.c ft_split.c ft_strdup.c ft_atoi.c ft_swap.c \
 							free_utils.c list.c list_tabs.c \
 							ft_printf.c ft_print_ptr.c ft_print_unsigned.c ft_simple_utils.c \
@@ -27,9 +26,7 @@ _UTILS_FT				=	ft_bzero.c ft_calloc.c ft_strchr.c ft_abs.c ft_strjoin_secure.c \
 UTILS_DIR				=	./utils/
 UTILS_FT_SRCS			=	$(addprefix $(UTILS_DIR), $(_UTILS_FT))
 
-
-# UTILS_OBJS				=	$(UTILS_FT_SRCS:.c=.o)
-
+# MAIN VARIABLES
 ALL_SRCS				=	$(FDF_SRCS) $(UTILS_FT_SRCS)
 ALL_OBJS				=	$(ALL_SRCS:.c=.o)
 ALL_DEPS  				= 	${ALL_SRCS:.c=.d} 
@@ -55,4 +52,4 @@ re :
 
 -include ${ALL_DEPS}
 
-.PHONY: all clean fclean re re-bonus
+.PHONY: all clean fclean re

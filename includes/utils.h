@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:51:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/10/16 14:49:07 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:08:26 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct list_tabs
 int		ft_abs(int a, int b);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
+int		ft_isnegative(int n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin_secure(char *s1, char *s2);

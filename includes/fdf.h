@@ -6,18 +6,17 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 13:02:17 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:52:38 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "../mlx_linux/mlx.h"
-# include <X11/X.h>
-# include "./utils.h"
-# include <stdio.h>
 # include <math.h>
+# include <X11/X.h>
+# include "../mlx_linux/mlx.h"
+# include "./utils.h"
 
 # define WIN_WIDTH  1200
 # define WIN_HEIGTH 900
@@ -84,8 +83,6 @@ typedef struct map
 	int			map_heigth;
 	int			amount_vec;
 	int			is_rectancle_map;
-	int			max_z;
-	int			min_z;
 	t_vertex	*coords;
 	t_vec2d		*vertex;
 }				t_map;

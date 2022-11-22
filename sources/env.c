@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:41:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 12:22:53 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:49:39 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	ft_init_img(t_fdf *fdf)
 /*
 According to the content of the link: 
 http://www.gandraxa.com/isometric_projection.xml
-This is the angle value for initialize isometric projection
+This is a correct value for get the iso projection
 */
 
 void	ft_init_cam(t_fdf *fdf)
@@ -81,8 +81,6 @@ void	ft_init_cam(t_fdf *fdf)
 
 	cam = &fdf->cam;
 	cam->scale = ft_get_scale(fdf);
-	// Here
-	printf("Scale : %f\n", cam->scale);
 	cam->angle_iso_projection = 26.565;
 	cam->angle_y_rot = 0;
 	cam->cen_screen_x = WIN_WIDTH / 2;

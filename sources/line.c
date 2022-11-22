@@ -105,16 +105,19 @@ static void	ft_last_lines(t_fdf *fdf)
 	t_vec2d	vec_bottom_left;
 	t_vec2d	vec_bottom_right;
 	t_vec2d	vec_top_right;
-	int		last_row;
-	int		last_col;
+	int		rows;
+	int		cols;
 
-	last_row = fdf->map.map_heigth;
-	last_col = fdf->map.map_width;
-	vec_top_right = fdf->map.vertex[idx(0, last_col - 1, 0)];
-	vec_bottom_left = fdf->map.vertex[idx(last_row, 0, last_col) - last_col];
-	vec_bottom_right = fdf->map.vertex[idx(last_row, 0, last_col) - 1];
-	ft_draw_line(fdf, &fdf->img, vec_top_right, vec_bottom_right);
-	ft_draw_line(fdf, &fdf->img, vec_bottom_left, vec_bottom_right);
+	if (fdf->map.coords != NULL)
+	{
+		rows = fdf->map.map_heigth;
+		cols = fdf->map.map_width;
+		vec_top_right = fdf->map.vertex[idx(0, cols - 1, 0)];
+		vec_bottom_left = fdf->map.vertex[idx(rows, 0, cols) - cols];
+		vec_bottom_right = fdf->map.vertex[idx(rows, 0, cols) - 1];
+		ft_draw_line(fdf, &fdf->img, vec_top_right, vec_bottom_right);
+		ft_draw_line(fdf, &fdf->img, vec_bottom_left, vec_bottom_right);
+	}
 }
 
 void	ft_draw_lines(t_fdf *fdf, t_img *img)
