@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:44:13 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/10/16 15:04:48 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:02:48 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static t_vertex	ft_get_vector(int x_ax_val, int y_ax_val, char *z_ax_val)
 	nex_vertex.x = (double)x_ax_val;
 	nex_vertex.y = (double)y_ax_val;
 	nex_vertex.z = (double)ft_atoi((char *)z_ax_val);
+	nex_vertex.initial_z = nex_vertex.z;
 	return (nex_vertex);
 }
 

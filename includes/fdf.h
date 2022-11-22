@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 12:22:01 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:02:17 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define WIN_WIDTH  800
-# define WIN_HEIGTH 600
+# define WIN_WIDTH  1200
+# define WIN_HEIGTH 900
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -75,6 +75,7 @@ typedef struct vector
 	double	x;
 	double	y;
 	double	z;
+	double	initial_z;
 }			t_vertex;
 
 typedef struct map
