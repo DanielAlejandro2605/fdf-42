@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:41:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 11:54:17 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:22:53 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_init_cam(t_fdf *fdf)
 	cam = &fdf->cam;
 	cam->scale = ft_get_scale(fdf);
 	// Here
-	ft_printf("Scale : %d\n", cam->scale);
+	printf("Scale : %f\n", cam->scale);
 	cam->angle_iso_projection = 26.565;
 	cam->angle_y_rot = 0;
 	cam->cen_screen_x = WIN_WIDTH / 2;

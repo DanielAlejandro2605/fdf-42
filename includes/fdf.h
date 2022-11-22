@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 11:52:44 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:22:01 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define WIN_WIDTH  1200
-# define WIN_HEIGTH 900
+# define WIN_WIDTH  800
+# define WIN_HEIGTH 600
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -120,6 +120,4 @@ int		ft_error_message(void);
 /*Isometric Utils*/
 double	ft_deg_to_rad(double angle);
 int		idx(int row, int col, int dim);
-/*Function for the develop of project*/
-void	ft_print_vector(t_vertex *vec);
 #endif
