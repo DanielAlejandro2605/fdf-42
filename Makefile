@@ -1,6 +1,6 @@
 NAME					=	fdf
 CC						=	cc
-FLAGS					=	-Wall -Wextra -Werror
+FLAGS					=	-Wall -Wextra -Werror -g
 RM						=	rm -f
 
 # DIRECTORIES
@@ -18,7 +18,7 @@ FDF_SRC_DIR				=	./sources/
 FDF_SRCS				=	$(addprefix $(FDF_SRC_DIR), $(_FDF_FILES))
 
 _UTILS_FT				=	ft_bzero.c ft_calloc.c ft_isnegative.c ft_strchr.c ft_abs.c ft_strjoin_secure.c \
-							ft_strlen_int.c ft_split.c ft_strdup.c ft_atoi.c ft_swap.c \
+							ft_strlen_int.c ft_split.c ft_strdup.c ft_atoi.c ft_atoi_base.c ft_swap.c \
 							free_utils.c list.c list_tabs.c \
 							ft_printf.c ft_print_ptr.c ft_print_unsigned.c ft_simple_utils.c \
 							get_next_line.c

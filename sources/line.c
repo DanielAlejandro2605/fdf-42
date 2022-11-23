@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-static void	ft_fill_one_pixel(t_img *data, double x, double y)
+static void	ft_fill_one_pixel(t_img *data, double x, double y, int color)
 {
 	int		offset;
 	float	index;
@@ -21,7 +21,10 @@ static void	ft_fill_one_pixel(t_img *data, double x, double y)
 	if ((y >= 0 && y < WIN_HEIGTH) && (x >= 0 && x < WIN_WIDTH))
 	{
 		index = idx(y + offset, x + offset, WIN_WIDTH) * data->bbp;
-		*(int *)(data->address + (int)(index)) = 0x0000FF00;
+		if (color != 0)
+			*(int *)(data->address + (int)(index)) = color;
+		else
+			*(int *)(data->address + (int)(index)) = DEFAULT_COLOR;
 	}
 }
 
@@ -77,12 +80,15 @@ static void	ft_bresenham(t_line *line, t_img *img)
 		t = (double)i / line->length;
 		current_x = line->x1 + (t * (line->x2 - line->x1));
 		current_y = line->y1 + (t * (line->y2 - line->y1));
-		ft_fill_one_pixel(img, current_x, current_y);
+		if (i <= (line->length / 2))
+			ft_fill_one_pixel(img, current_x, current_y, line->color_1);
+		else
+			ft_fill_one_pixel(img, current_x, current_y, line->color_2);
 		i++;
 	}
 }
 
-static void	ft_draw_line(t_fdf *fdf, t_img *img, t_vec2d vec_1, t_vec2d vec_2)
+static void	ft_draw_line(t_img *img, t_vec2d vec_1, t_vec2d vec_2)
 {
 	t_line	line;
 
@@ -90,7 +96,10 @@ static void	ft_draw_line(t_fdf *fdf, t_img *img, t_vec2d vec_1, t_vec2d vec_2)
 	line.y1 = (int)vec_1.y;
 	line.x2 = (int)vec_2.x;
 	line.y2 = (int)vec_2.y;
-	(void)fdf;
+	line.color_1 = vec_1.color;
+	line.color_2 = vec_2.color;
+	printf("line color 1 %d\n", line.color_1);
+	printf("line color 2 %d\n", line.color_2);
 	line.dx = ft_abs(line.x2, line.x1);
 	line.dy = ft_abs(line.y2, line.y1);
 	if (line.dx > line.dy)
@@ -115,8 +124,8 @@ static void	ft_last_lines(t_fdf *fdf)
 		vec_top_right = fdf->map.vertex[idx(0, cols - 1, 0)];
 		vec_bottom_left = fdf->map.vertex[idx(rows, 0, cols) - cols];
 		vec_bottom_right = fdf->map.vertex[idx(rows, 0, cols) - 1];
-		ft_draw_line(fdf, &fdf->img, vec_top_right, vec_bottom_right);
-		ft_draw_line(fdf, &fdf->img, vec_bottom_left, vec_bottom_right);
+		ft_draw_line(&fdf->img, vec_top_right, vec_bottom_right);
+		ft_draw_line(&fdf->img, vec_bottom_left, vec_bottom_right);
 	}
 }
 
@@ -131,10 +140,10 @@ void	ft_draw_lines(t_fdf *fdf, t_img *img)
 		col = 0;
 		while (col < (fdf->map.map_width - 1))
 		{
-			ft_draw_line(fdf, img, \
+			ft_draw_line(img, \
 					fdf->map.vertex[idx(row, col, fdf->map.map_width)], \
 					fdf->map.vertex[idx(row, col + 1, fdf->map.map_width)]);
-			ft_draw_line(fdf, img, \
+			ft_draw_line(img, \
 					fdf->map.vertex[idx(row, col, fdf->map.map_width)], \
 					fdf->map.vertex[idx(row + 1, col, fdf->map.map_width)]);
 			col++;

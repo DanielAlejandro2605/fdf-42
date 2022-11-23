@@ -25,6 +25,7 @@ static t_vertex	ft_get_x_point(t_fdf *fdf, t_vertex *coordinates_2d)
 	rot_point.x = (x_point * cos(thetha)) - (y_point * sin(thetha));
 	rot_point.y = (x_point * sin(thetha)) + (y_point * cos(thetha));
 	rot_point.z = coordinates_2d->z;
+	rot_point.color = coordinates_2d->color;
 	return (rot_point);
 }
 
@@ -44,6 +45,7 @@ static t_vec2d	ft_get_iso_point(t_fdf *fdf, t_vertex *coord)
 						- fdf->cam.origins.x + fdf->cam.cen_screen_x;
 	point_iso.y = ((coord->x + coord->y) * sin_t - coord->z) * fdf->cam.scale \
 						- fdf->cam.origins.y + fdf->cam.cen_screen_y;
+	point_iso.color = coord->color;
 	return (point_iso);
 }
 

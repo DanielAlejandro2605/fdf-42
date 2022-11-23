@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 19:40:48 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 14:48:15 by dnieto-c         ###   ########.fr       */
+/*   Created: 2022/11/23 14:30:25 by dnieto-c          #+#    #+#             */
+/*   Updated: 2022/11/23 14:30:40 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/utils.h"
 
-char	*ft_strchr(const char *s, int c)
+int ft_strchr(char *str, char c)
 {
-	if (s)
-	{
-		while (*s != (char )c)
-		{
-			if (!*s)
-				return (NULL);
-			s++;
-		}
-		return ((char *)s);	
-	}
-	return (NULL);
+    int i;
+
+    if (!str || c == '\0')
+        return (0);
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] == c)
+            return (1);
+        i++;
+    }
+    return (0);
 }

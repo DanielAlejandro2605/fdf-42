@@ -6,21 +6,55 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:44:13 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 17:47:53 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:04:13 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_vertex	ft_get_vector(int x_ax_val, int y_ax_val, char *z_ax_val)
+static int	ft_color_contains_may(char *point_str)
 {
-	t_vertex	nex_vertex;
+	int i;
 
-	nex_vertex.x = (double)x_ax_val;
-	nex_vertex.y = (double)y_ax_val;
-	nex_vertex.z = (double)ft_atoi((char *)z_ax_val);
-	nex_vertex.initial_z = nex_vertex.z;
-	return (nex_vertex);
+	i = 0;
+	while (point_str[i])
+	{
+		if (point_str[i] >= 'A' && point_str[i] <= 'Z')
+			return (1);
+		i++;	
+	}
+	return (0);
+}
+
+static int ft_point_contain_color(char *point_str)
+{
+    char	*color_str;
+	
+	color_str = ft_strchr(point_str, ',');
+	if (!color_str)
+		return (0);
+	return (1);
+}
+
+static t_vertex	ft_vec(int x_ax_val, int y_ax_val, char *z_ax_val, int f)
+{
+	t_vertex	new_vertex;
+
+	new_vertex.x = (double)x_ax_val;
+	new_vertex.y = (double)y_ax_val;
+	new_vertex.z = (double)ft_atoi((char *)z_ax_val);
+	new_vertex.initial_z = new_vertex.z;
+	if (f)
+	{
+		if (ft_color_contains_may(z_ax_val))
+			new_vertex.color = ft_atoi_base(z_ax_val + 4, "0123456789abcdef");
+		else
+			new_vertex.color = ft_atoi_base(z_ax_val + 4, "0123456789ABCDEF");
+	}
+	else
+		new_vertex.color = 0;
+	// printf("color of coords : %d\n", new_vertex.color);
+	return (new_vertex);
 }
 
 static int	ft_get_coords(t_lstb *list_lines_map, t_map *map)
@@ -28,20 +62,23 @@ static int	ft_get_coords(t_lstb *list_lines_map, t_map *map)
 	t_lstb		*aux;
 	int			row;
 	int			col;
-	int			aux_row;
+	int			ax_row;
 
 	aux = list_lines_map;
-	aux_row = 0;
+	ax_row = 0;
 	row = 0;
 	while (row < map->map_heigth)
 	{
 		col = 0;
 		while (col < map->map_width)
 		{
-			map->coords[aux_row + col] = ft_get_vector(col, row, aux->tab[col]);
+			if (ft_point_contain_color(aux->tab[col]))
+				map->coords[ax_row + col] = ft_vec(col, row, aux->tab[col], 1);
+			else
+				map->coords[ax_row + col] = ft_vec(col, row, aux->tab[col], 0);
 			col++;
 		}
-		aux_row += map->map_width;
+		ax_row += map->map_width;
 		aux = aux->next;
 		row++;
 	}

@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:51:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 17:08:26 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:11:21 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_strlen_int(char *s);
 char	**ft_split(char const *str, char c);
 char	*ft_strdup(const char *s);
 int		ft_atoi(const char *str);
+int		ft_atoi_base(char *str, char *base);
 void	ft_swap(int *x, int *y);
 /*All prototypes functions of related of linked list of void* */
 t_list	*ft_lstnew(void *content);

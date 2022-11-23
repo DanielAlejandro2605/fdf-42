@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/22 17:52:38 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:45:52 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 # include "../mlx_linux/mlx.h"
 # include "./utils.h"
 
+# include <stdio.h>
 # define WIN_WIDTH  1200
 # define WIN_HEIGTH 900
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-
+# define DEFAULT_COLOR 0x0000FF00
+# define COLOR 0x860c0c
+ 
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGTH 65363
 # define ROTATE_UP 65362
@@ -36,6 +39,7 @@ typedef struct vector_2d
 {
 	double	x;
 	double	y;
+	int		color;
 }			t_vec2d;
 
 typedef struct line
@@ -47,6 +51,8 @@ typedef struct line
 	int		y1;
 	int		x2;
 	int		y2;
+	int		color_1;
+	int		color_2;
 }			t_line;
 
 typedef struct s_cam
@@ -75,6 +81,7 @@ typedef struct vector
 	double	y;
 	double	z;
 	double	initial_z;
+	int		color;
 }			t_vertex;
 
 typedef struct map
