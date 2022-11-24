@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:40:48 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 14:48:15 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:48:47 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *s, int c)
 				return (NULL);
 			s++;
 		}
-		return ((char *)s);	
+		return ((char *)s);
 	}
 	return (NULL);
 }

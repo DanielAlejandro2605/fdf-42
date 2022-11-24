@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 15:45:52 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:49:33 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define DEFAULT_COLOR 0x0000FF00
-# define COLOR 0x860c0c
- 
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGTH 65363
 # define ROTATE_UP 65362
