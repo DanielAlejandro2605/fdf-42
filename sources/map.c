@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:44:13 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 16:04:13 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:30:01 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static int	ft_color_contains_may(char *point_str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (point_str[i])
 	{
 		if (point_str[i] >= 'A' && point_str[i] <= 'Z')
 			return (1);
-		i++;	
+		i++;
 	}
 	return (0);
 }
 
-static int ft_point_contain_color(char *point_str)
+static int	ft_point_contain_color(char *point_str)
 {
-    char	*color_str;
-	
+	char	*color_str;
+
 	color_str = ft_strchr(point_str, ',');
 	if (!color_str)
 		return (0);
@@ -53,7 +53,6 @@ static t_vertex	ft_vec(int x_ax_val, int y_ax_val, char *z_ax_val, int f)
 	}
 	else
 		new_vertex.color = 0;
-	// printf("color of coords : %d\n", new_vertex.color);
 	return (new_vertex);
 }
 

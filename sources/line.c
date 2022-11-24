@@ -98,8 +98,6 @@ static void	ft_draw_line(t_img *img, t_vec2d vec_1, t_vec2d vec_2)
 	line.y2 = (int)vec_2.y;
 	line.color_1 = vec_1.color;
 	line.color_2 = vec_2.color;
-	printf("line color 1 %d\n", line.color_1);
-	printf("line color 2 %d\n", line.color_2);
 	line.dx = ft_abs(line.x2, line.x1);
 	line.dy = ft_abs(line.y2, line.y1);
 	if (line.dx > line.dy)
@@ -111,21 +109,29 @@ static void	ft_draw_line(t_img *img, t_vec2d vec_1, t_vec2d vec_2)
 
 static void	ft_last_lines(t_fdf *fdf)
 {
-	t_vec2d	vec_bottom_left;
-	t_vec2d	vec_bottom_right;
-	t_vec2d	vec_top_right;
+	t_vec2d	vec_aux_1;
+	t_vec2d	vec_aux_2;
 	int		rows;
 	int		cols;
+	int		i;
 
-	if (fdf->map.coords != NULL)
+	rows = fdf->map.map_heigth;
+	cols = fdf->map.map_width;
+	i = 0;
+	while (i < (rows - 1))
 	{
-		rows = fdf->map.map_heigth;
-		cols = fdf->map.map_width;
-		vec_top_right = fdf->map.vertex[idx(0, cols - 1, 0)];
-		vec_bottom_left = fdf->map.vertex[idx(rows, 0, cols) - cols];
-		vec_bottom_right = fdf->map.vertex[idx(rows, 0, cols) - 1];
-		ft_draw_line(&fdf->img, vec_top_right, vec_bottom_right);
-		ft_draw_line(&fdf->img, vec_bottom_left, vec_bottom_right);
+		vec_aux_1 = fdf->map.vertex[idx(cols, (cols - 1), i)];
+		vec_aux_2 = fdf->map.vertex[idx(cols, (cols - 1), i + 1)];
+		ft_draw_line(&fdf->img, vec_aux_1, vec_aux_2);
+		i++;
+	}
+	i = 0;
+	while (i < (cols - 1))
+	{
+		vec_aux_1 = fdf->map.vertex[idx(cols, i, (rows - 1))];
+		vec_aux_2 = fdf->map.vertex[idx(cols, i + 1, (rows - 1))];
+		ft_draw_line(&fdf->img, vec_aux_1, vec_aux_2);
+		i++;
 	}
 }
 

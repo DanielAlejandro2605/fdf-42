@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:22 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 11:31:30 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:33:45 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	ft_display_correct_usage(void)
 	ft_printf("Incorrect usage of the program\n");
 	ft_printf("Correct usage: \n");
 	ft_printf("[./fdf] [map-file]\n");
+	exit (1);
 }
 
 static int	ft_little_check(char *map_name)

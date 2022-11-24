@@ -20,7 +20,7 @@ static int	ft_get_lines_from_file(char *file_name, t_list **lst)
 	char	c;
 
 	fd_map = open(file_name, O_RDONLY);
-	if (!fd_map)
+	if (fd_map == -1)
 		return (1);
 	line = get_next_line(fd_map);
 	while (line)

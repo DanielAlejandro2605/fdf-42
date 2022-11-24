@@ -44,8 +44,8 @@ static void	ft_scale_vertex(t_fdf *fdf, int scale_direction)
 	vec_z_value = 0;
 	while (i < fdf->map.amount_vec)
 	{
-		vec_z_value = fdf->map.coords[i].z;
-		if (vec_z_value != 0 && fdf->map.coords[i].initial_z != 0)
+		vec_z_value = fdf->map.coords[i].initial_z;
+		if (vec_z_value != 0)
 		{
 			ft_limit_initial_z(&fdf->map.coords[i], scale_direction);
 		}
