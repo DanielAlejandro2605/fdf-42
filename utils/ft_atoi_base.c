@@ -6,21 +6,13 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 20:03:57 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/23 15:29:59 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:57:40 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int		i;
+#include "../includes/utils.h"
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	position_char_in_base(char c, char *base)
+static int	position_char_in_base(char c, char *base)
 {
 	int		i;
 
@@ -30,7 +22,7 @@ int	position_char_in_base(char c, char *base)
 	return (i);
 }
 
-int	char_is_in_base(char c, char *base)
+static int	char_is_in_base(char c, char *base)
 {
 	int		i;
 
@@ -44,14 +36,14 @@ int	char_is_in_base(char c, char *base)
 	return (0);
 }
 
-int	check_base(char *base)
+static int	check_base(char *base)
 {
 	int		i;
 	int		j;
 	int		len;
 
 	i = 0;
-	len = ft_strlen(base);
+	len = ft_strlen_int(base);
 	if (len == 0 || len == 1)
 		return (0);
 	while (base[i])
@@ -91,16 +83,8 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	while (char_is_in_base(*str, base))
 	{
-		atoi = atoi * ft_strlen(base) + position_char_in_base(*str, base);
+		atoi = atoi * ft_strlen_int(base) + position_char_in_base(*str, base);
 		str++;
 	}
 	return ((int)atoi * negative);
 }
-
-// #include <stdio.h>
-
-// int	ft_atoi_base(char *str, char *base);
-// int	main(void)
-// {
-// 	printf("%d\n", ft_atoi_base("860c0c", "0123456789abcdef"));
-// }

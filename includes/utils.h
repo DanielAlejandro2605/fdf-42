@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:51:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/24 16:49:23 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:26:26 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,14 @@ void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin_secure(char *s1, char *s2);
 int		ft_strlen_int(char *s);
+size_t	ft_strlen(const char *s);
 char	**ft_split(char const *str, char c);
 char	*ft_strdup(const char *s);
 int		ft_atoi(const char *str);
 int		ft_atoi_base(char *str, char *base);
 void	ft_swap(int *x, int *y);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 /*All prototypes functions of related of linked list of void* */
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);

@@ -45,20 +45,23 @@ static int	ft_number_words_in_line(char *str, char sep)
 {
 	int		i;
 	int		number_words;
+	char	*str_trim;
 
+	str_trim = ft_strtrim(str, " \n");
 	number_words = 0;
 	i = 0;
-	while (str[i])
+	while (str_trim[i])
 	{
-		while (str[i] && str[i] == sep)
+		while (str_trim[i] && str_trim[i] == sep)
 			i++;
-		if (str[i] && str[i] != sep)
+		if (str_trim[i] && str_trim[i] != sep)
 		{
 			number_words++;
-			while (str[i] && str[i] != sep)
+			while (str_trim[i] && str_trim[i] != sep)
 				i++;
 		}
 	}
+	free (str_trim);
 	return (number_words);
 }
 
@@ -75,7 +78,10 @@ static int	ft_get_dimensions_map(t_list *lst, t_map *map)
 		if (map->map_width == 0)
 			map->map_width = ft_number_words_in_line(line, ' ');
 		else if (map->map_width != ft_number_words_in_line(line, ' '))
-			map->is_rectancle_map = 0;
+		{
+			ft_free_list(lst);
+			return (1);
+		}
 		map->map_heigth++;
 		aux = aux->next;
 	}
@@ -106,6 +112,7 @@ int	ft_read_file(char *file_name, t_lstb **lst_tabs, t_map *map)
 		ft_lstadd_back_tab(lst_tabs, aux_tabs);
 		aux_lines = aux_lines->next;
 	}
-	ft_get_dimensions_map(lines_map, map);
+	if (ft_get_dimensions_map(lines_map, map))
+		return (1);
 	return (0);
 }

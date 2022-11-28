@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/24 16:49:33 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:58:29 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@
 # include "../mlx_linux/mlx.h"
 # include "./utils.h"
 
-# include <stdio.h>
 # define WIN_WIDTH  1200
 # define WIN_HEIGTH 900
 
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
 # define DEFAULT_COLOR 0x0000FF00
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGTH 65363

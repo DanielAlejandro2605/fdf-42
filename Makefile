@@ -1,6 +1,6 @@
 NAME					=	fdf
 CC						=	cc
-FLAGS					=	-Wall -Wextra -Werror -g
+FLAGS					=	-Wall -Wextra -Werror
 RM						=	rm -f
 
 # DIRECTORIES
@@ -21,7 +21,7 @@ _UTILS_FT				=	ft_bzero.c ft_calloc.c ft_isnegative.c ft_strchr.c ft_abs.c ft_st
 							ft_strlen_int.c ft_split.c ft_strdup.c ft_atoi.c ft_atoi_base.c ft_swap.c \
 							free_utils.c list.c list_tabs.c \
 							ft_printf.c ft_print_ptr.c ft_print_unsigned.c ft_simple_utils.c \
-							get_next_line.c
+							get_next_line.c ft_strtrim.c ft_strlen.c ft_substr.c
 
 UTILS_DIR				=	./utils/
 UTILS_FT_SRCS			=	$(addprefix $(UTILS_DIR), $(_UTILS_FT))

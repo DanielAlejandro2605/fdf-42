@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:44:13 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/24 16:30:01 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:52:09 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,11 @@ int	ft_create_map_from_file(char *file_name, t_map *map)
 	map->is_rectancle_map = 1;
 	map->amount_vec = 0;
 	if (ft_read_file(file_name, &list_lines_map, map))
+	{
+		if (list_lines_map)
+			ft_free_list_tab(list_lines_map);
 		return (1);
+	}
 	map->amount_vec = map->map_width * map->map_heigth;
 	map->coords = (t_vertex *)malloc(sizeof(t_vertex) * (map->amount_vec));
 	if (!map->coords)
