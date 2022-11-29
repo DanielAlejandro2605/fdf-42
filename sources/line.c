@@ -14,13 +14,19 @@
 
 static void	ft_fill_one_pixel(t_img *data, double x, double y, int color)
 {
-	int		offset;
+	int		offset_x;
+	int		offset_y;
+	int		x_px;
+	int		y_px;
 	float	index;
 
-	offset = data->offset_window;
-	if ((y >= 0 && y < WIN_HEIGTH) && (x >= 0 && x < WIN_WIDTH))
+	offset_x = data->offset_window_x;
+	offset_y = data->offset_window_y;
+	x_px = x + offset_x;
+	y_px = y + offset_y;
+	if ((y_px >= 0 && y_px < WIN_HEIGTH) && (x_px >= 0 && x_px < WIN_WIDTH))
 	{
-		index = idx(y + offset, x + offset, WIN_WIDTH) * data->bbp;
+		index = idx(y + offset_y, x + offset_x, WIN_WIDTH) * data->bbp;
 		if (color != 0)
 			*(int *)(data->address + (int)(index)) = color;
 		else

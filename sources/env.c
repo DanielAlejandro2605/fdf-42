@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:41:24 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/28 12:44:38 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:33:49 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static int	ft_init_img(t_fdf *fdf)
 		return (1);
 	img->address = mlx_get_data_addr(img->img, &img->bbp, \
 									&img->line_length, &img->endian);
-	img->offset_window = 0;
+	img->offset_window_x = 0;
+	img->offset_window_y = 0;
 	img->bbp /= 8;
 	return (0);
 }

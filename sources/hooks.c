@@ -55,6 +55,7 @@ static void	ft_scale_vertex(t_fdf *fdf, int scale_direction)
 
 static int	key_hook(int key_code, t_fdf *fdf)
 {
+	ft_printf("key code : %d\n", key_code);
 	if (key_code == ROTATE_LEFT)
 		fdf->cam.angle_y_rot -= 5;
 	else if (key_code == ROTATE_RIGTH)
@@ -67,6 +68,14 @@ static int	key_hook(int key_code, t_fdf *fdf)
 		fdf->cam.scale += 2;
 	else if (key_code == ZOOM_OUT)
 		fdf->cam.scale -= 2;
+	else if (key_code == W_OFFSET)
+		fdf->img.offset_window_y -= 10;
+	else if (key_code == S_OFFSET)
+		fdf->img.offset_window_y += 10;
+	else if (key_code == A_OFFSET)
+		fdf->img.offset_window_x -= 10;
+	else if (key_code == D_OFFSET)
+		fdf->img.offset_window_x += 10;
 	else if (key_code == ESCAPE)
 		ft_safe_exit_free(fdf);
 	ft_render(fdf);

@@ -85,6 +85,7 @@ static int	ft_get_dimensions_map(t_list *lst, t_map *map)
 		map->map_heigth++;
 		aux = aux->next;
 	}
+	map->amount_vec = map->map_width * map->map_heigth;
 	ft_free_list(lst);
 	return (0);
 }
@@ -112,7 +113,7 @@ int	ft_read_file(char *file_name, t_lstb **lst_tabs, t_map *map)
 		ft_lstadd_back_tab(lst_tabs, aux_tabs);
 		aux_lines = aux_lines->next;
 	}
-	if (ft_get_dimensions_map(lines_map, map))
+	if (ft_get_dimensions_map(lines_map, map) || (map->amount_vec == 0))
 		return (1);
 	return (0);
 }

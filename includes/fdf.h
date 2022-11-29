@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:25:35 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/28 12:58:29 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:36:16 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define ZOOM_IN 105
 # define ZOOM_OUT 111
 # define ESCAPE 65307
+# define W_OFFSET 119
+# define A_OFFSET 97
+# define S_OFFSET 115
+# define D_OFFSET 100
 
 typedef struct vector_2d
 {
@@ -64,7 +68,8 @@ typedef struct image
 {
 	void	*img;
 	char	*address;
-	int		offset_window;
+	int		offset_window_x;
+	int		offset_window_y;
 	int		bbp;
 	int		line_length;
 	int		endian;

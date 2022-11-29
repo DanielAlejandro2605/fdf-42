@@ -16,9 +16,10 @@ int	ft_error_message(void)
 {
 	ft_printf("Something went wrong. ");
 	ft_printf("This can be caused by :\n");
-	ft_printf("  Found wrong line length.\n");
-	ft_printf("  No permissions file.\n");
-	ft_printf("  Otherwise by a failed malloc.\n");
+	ft_printf(" - Found wrong line length.\n");
+	ft_printf(" - No data found in the file.\n");
+	ft_printf(" - No permissions file.\n");
+	ft_printf(" - Or a failed malloc.\n");
 	return (1);
 }
 

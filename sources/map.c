@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:44:13 by dnieto-c          #+#    #+#             */
-/*   Updated: 2022/11/28 12:52:09 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:25:23 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ int	ft_create_map_from_file(char *file_name, t_map *map)
 			ft_free_list_tab(list_lines_map);
 		return (1);
 	}
-	map->amount_vec = map->map_width * map->map_heigth;
 	map->coords = (t_vertex *)malloc(sizeof(t_vertex) * (map->amount_vec));
 	if (!map->coords)
 		return (ft_free_list_tab(list_lines_map));
